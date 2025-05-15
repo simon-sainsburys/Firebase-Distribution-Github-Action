@@ -56,6 +56,10 @@ Flag that can be included to print verbose log output. Default value is `false`
 
 ## Outputs
 
+### `RELEASE_BUILD_NAME`
+
+Release name returned after successful upload
+
 ### `FIREBASE_CONSOLE_URI`
 
 Link to uploaded release in the Firebase console.

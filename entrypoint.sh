@@ -51,8 +51,7 @@ firebase \
       if [[ $line == *"uploaded new release"* ]]; then
         RELEASE_BUILD_NAME=$(echo "$line"|sed -e 's/.*release \(.*\) successfully\!/\1/')
         echo "RELEASE_BUILD_NAME=$RELEASE_BUILD_NAME" >>"$GITHUB_OUTPUT"
-      fi
-      if [[ $line == *"View this release in the Firebase console"* ]]; then
+      elif [[ $line == *"View this release in the Firebase console"* ]]; then
         CONSOLE_URI=$(echo "$line" | sed -e 's/.*: //' -e 's/^ *//;s/ *$//')
         echo "FIREBASE_CONSOLE_URI=$CONSOLE_URI" >>"$GITHUB_OUTPUT"
       elif [[ $line == *"Share this release with testers who have access"* ]]; then

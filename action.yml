@@ -38,4 +38,4 @@ branding:
   icon: 'send'
 runs:
   using: 'docker'
-  image: docker://ghcr.io/itsmattking/firebase-distribution-github-action:sha-cb8607d
+  image: docker://ghcr.io/itsmattking/firebase-distribution-github-action:sha-906f2aa

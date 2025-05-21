@@ -66,6 +66,10 @@ firebase \
         echo "BINARY_DOWNLOAD_URI=$BINARY_URI" >> $GITHUB_OUTPUT
       fi
 
-      echo $GITHUB_OUTPUT
     done
+
+    cat $GITHUB_OUTPUT
+
 }
+
+

@@ -47,24 +47,19 @@ firebase \
 {
     while read -r line; do
       echo $line
-      echo "1"
-      
+
       if [[ $line == *"uploaded new release"* ]]; then
-        echo "a"
         RELEASE_BUILD_NAME=$(echo "$line"|sed -e 's/.*release \(.*\) successfully\!/\1/')
-        echo "RELEASE_BUILD_NAME=$RELEASE_BUILD_NAME" >>"$GITHUB_OUTPUT"
+        echo "RELEASE_BUILD_NAME=$RELEASE_BUILD_NAME" >> $GITHUB_OUTPUT
       elif [[ $line == *"View this release in the Firebase console"* ]]; then
-        echo "b"
         CONSOLE_URI=$(echo "$line" | sed -e 's/.*: //' -e 's/^ *//;s/ *$//')
-        echo "FIREBASE_CONSOLE_URI=$CONSOLE_URI" >>"$GITHUB_OUTPUT"
+        echo "FIREBASE_CONSOLE_URI=$CONSOLE_URI" >> $GITHUB_OUTPUT
       elif [[ $line == *"Share this release with testers who have access"* ]]; then
-        echo "c"
         TESTING_URI=$(echo "$line" | sed -e 's/.*: //' -e 's/^ *//;s/ *$//')
-        echo "TESTING_URI=$TESTING_URI" >>"$GITHUB_OUTPUT"
+        echo "TESTING_URI=$TESTING_URI" >> $GITHUB_OUTPUT
       elif [[ $line == *"Download the release binary"* ]]; then
-        echo "d"
         BINARY_URI=$(echo "$line" | sed -e 's/.*: //' -e 's/^ *//;s/ *$//')
-        echo "BINARY_DOWNLOAD_URI=$BINARY_URI" >>"$GITHUB_OUTPUT"
+        echo "BINARY_DOWNLOAD_URI=$BINARY_URI" >> $GITHUB_OUTPUT
       fi
     done
 }

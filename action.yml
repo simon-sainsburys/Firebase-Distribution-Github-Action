@@ -46,7 +46,7 @@ outputs:
     value: ${{ steps.upload.outputs.TESTING_URI }}
   BINARY_URI:
     description: 'Link to the release binary'
-    value: ${{ steps.upload.outputs.TESTING_URI }}    
+    value: ${{ steps.upload.outputs.BINARY_URI }}    
 
 branding:
   color: 'orange'

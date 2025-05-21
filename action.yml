@@ -33,6 +33,11 @@ inputs:
     description: 'Flag that can included to print verbose log output.'
     required: false
     default: false
+
+outputs:
+  FIREBASE_CONSOLE_URI:
+    description: 'Link to the Firebase Console release'
+
 branding:
   color: 'orange'
   icon: 'send'

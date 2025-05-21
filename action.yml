@@ -37,11 +37,21 @@ inputs:
 outputs:
   FIREBASE_CONSOLE_URI:
     description: 'Link to the Firebase Console release'
+    value: ${{ steps.upload.outputs.FIREBASE_CONSOLE_URI }}
+  RELEASE_BUILD_NAME:
+    description: 'The release version and build number'
+    value: ${{ steps.upload.outputs.RELEASE_BUILD_NAME }}
+  TESTING_URI:
+    description: 'Link to the Firebase testing uri'
+    value: ${{ steps.upload.outputs.TESTING_URI }}
+  BINARY_URI:
+    description: 'Link to the release binary'
+    value: ${{ steps.upload.outputs.TESTING_URI }}    
 
 branding:
   color: 'orange'
   icon: 'send'
-  
+
 runs:
   using: "composite"
   steps:
@@ -52,6 +62,7 @@ runs:
     - run: npm install -g firebase-tools@13.17.0
       shell: bash
     - name: Publish to Firebase
+      id: upload
       run: $GITHUB_ACTION_PATH/entrypoint.sh
       shell: bash
       env:
